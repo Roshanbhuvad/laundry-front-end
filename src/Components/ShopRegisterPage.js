@@ -77,7 +77,7 @@ const ShopRegisterPage = (props) => {
 
    reverseGeocodeCoordinate() {
 
-       fetch("https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&sensor=false&key=AIzaSyB7L2B-Bs1VaZf7xy4Mt-fNDjRieTklWCA").then(response => response.json()).then(data => this.setState({
+       fetch("https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&sensor=false&key={google_API_KEY}").then(response => response.json()).then(data => this.setState({
          userAddress: data.results[0].formatted_address
        })).catch(error => alert(error)
        }
