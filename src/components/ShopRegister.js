@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Shopregister } from './ShopFunction'
 
-class Register extends Component {
+class ShopRegister extends Component {
   constructor() {
     super()
     this.state = {
@@ -194,4 +194,4 @@ class Register extends Component {
   }
 }
 
-export default Register
+export default ShopRegister

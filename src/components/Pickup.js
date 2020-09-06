@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { login } from './UserFunction'
+import { Pickup } from './PickupFunction'
 
-class UserLogin extends Component {
+class PickupUser extends Component {
   constructor() {
     super()
     this.state = {
-      email: '',
-      password: '',
+      customerId: '',
+      slot: '',
+      qunatity: '',
       errors: {}
     }
 
@@ -21,13 +22,13 @@ class UserLogin extends Component {
     e.preventDefault()
 
     const user = {
-      phoneNumber: this.state.phoneNumber,
-      password: this.state.password
+      slot: this.state.slot,
+      qunatity: this.state.qunatity
     }
 
-    login(user).then(res => {
+    Pickup(user).then(res => {
       if (res) {
-        this.props.history.push(`/profile`)
+        this.props.history.push(`/book/payment`)
       }
     })
   }
@@ -40,42 +41,33 @@ class UserLogin extends Component {
             <form noValidate onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal" className="font-weight-bold text-primary">Please sign in</h1>
               <div className="form-group">
-                <label htmlFor="phoneNumber" className="font-weight-bold text-danger">Mobile Number</label>
+                <label htmlFor="slot" className="font-weight-bold text-danger">Choose you Pickup Slot</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
-                  name="phoneNumber"
-                  placeholder="Enter your registered Mobile number"
-                  value={this.state.phoneNumber}
+                  name="slot"
+                  placeholder="9am-10pm"
+                  value={this.state.slot}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password" className="font-weight-bold text-danger">Password</label>
+                <label htmlFor="qunatity" className="font-weight-bold text-danger">Specify your qunatity</label>
                 <input
-                  type="password"
+                  type="number"
                   className="form-control"
-                  name="password"
-                  placeholder="Password"
+                  name="qunatity"
+                  placeholder="In number"
                   value={this.state.password}
                   onChange={this.onChange}
                 />
               </div>
-              <div className="form-group">
-      <div className="custom-control custom-checkbox">
-      <input type="checkbox" className="custom-control-input" id="customCheck1" />
-      <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-      </div>
-      </div>
               <button
-                type="submit"
+                type="Submit"
                 className="btn btn-lg btn-primary btn-block"
               >
-                Sign in
+                Continue & checkout
               </button>
-                       <p className="forgot-password text-right">
-       Forgot <a href="/user/{myid}">password?</a>
-     </p>
             </form>
           </div>
         </div>
@@ -84,4 +76,4 @@ class UserLogin extends Component {
   }
 }
 
-export default UserLogin;
+export default PickupUser;

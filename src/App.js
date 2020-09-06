@@ -14,6 +14,8 @@ import Register from './components/ShopRegister'
 import UserRegister from './components/UserRegister'
 import Profile from './components/Profile'
 import Admin from './components/AdminLogin'
+import Pickup from './components/Pickup'
+import UpdateShop from './components/UpdateShop'
 
 
 
@@ -36,6 +38,8 @@ class App extends Component {
             <Route exact path="/user/logincustomer" component={UserLogin} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/admin/loginadmin" component={Admin} />
+            <Route exact path="/book/{customerId}" component={Pickup} />
+            <Route exact path="/shops/{myid}" component={UpdateShop} />
             </Switch>
           </div>
         </div>
